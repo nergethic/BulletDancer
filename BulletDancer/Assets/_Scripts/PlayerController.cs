@@ -6,6 +6,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
+    [SerializeField] Camera mainCamera;
+    [SerializeField] Transform playerPosition;
+    [SerializeField] float playerSpeed = 1.0f;
+    [SerializeField] GameObject bulletPrefab;
     private Controls controls;
 
     private void OnEnable() {
@@ -42,13 +46,53 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
+        Vector3 newPlayerPos = playerPosition.position;
+        Vector2 moveValue = controls.Player.Move.ReadValue<Vector2>();
+
+        newPlayerPos.x += Time.deltaTime * moveValue.x * playerSpeed;
+        newPlayerPos.z += Time.deltaTime * moveValue.y * playerSpeed;
         
+        playerPosition.position = newPlayerPos;
+        
+        Vector3 newCameraPos = mainCamera.transform.position;
+        newCameraPos.x = newPlayerPos.x;
+        newCameraPos.z = newPlayerPos.z;
+
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        
+        var result = GetCentralizedMousePos();
+        
+        newCameraPos.x += result.x * 0.4f;
+        newCameraPos.z += result.y * 0.4f;
+        mainCamera.transform.position = newCameraPos;
+    }
+
+    Vector2 GetCentralizedMousePos() {
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        var result = mainCamera.ScreenToViewportPoint(mousePosition);
+        
+        // TODO: clamp vector
+        if (result.x < 0.0f)
+            result.x = 0.0f;
+        if (result.x > 1.0f)
+            result.x = 1.0f;
+        if (result.y < 0.0f)
+            result.y = 0.0f;
+        if (result.y > 1.0f)
+            result.y = 1.0f;
+        
+        result.x -= 0.5f;
+        result.y -= 0.5f;
+
+        return result;
     }
 
     private void OnFire(InputAction.CallbackContext context) {
         Debug.Log("Fire");
+        var bullet = Instantiate(bulletPrefab).GetComponent<Projectile>();
+        bullet.Initialize(GetCentralizedMousePos());
+        bullet.transform.position = playerPosition.position;
     }
     
     private void OnAim(InputAction.CallbackContext context) {
@@ -56,8 +100,8 @@ public class PlayerController : MonoBehaviour {
     }
     
     private void OnMove(InputAction.CallbackContext context) {
-        Debug.Log("Move");
         Vector2 value = context.ReadValue<Vector2>();
+        Debug.Log(value);
     }
     
     private void OnDash(InputAction.CallbackContext context) {

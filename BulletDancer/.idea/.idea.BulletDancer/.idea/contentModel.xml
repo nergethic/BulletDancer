@@ -14,7 +14,42 @@
         <e p="_Scripts" t="Include">
           <e p="CursorController.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
+          <e p="Projectile.cs" t="Include" />
           <e p="SimpleCameraController.cs" t="Include" />
+        </e>
+        <e p="AnimationImporter" t="Include">
+          <e p="Editor" t="Include">
+            <e p="AnimationAssetPostProcessor.cs" t="Include" />
+            <e p="AnimationImporter.cs" t="Include" />
+            <e p="AnimationImporterWindow.cs" t="Include" />
+            <e p="AnimationImportJob.cs" t="Include" />
+            <e p="Aseprite" t="Include">
+              <e p="AsepriteImporter.cs" t="Include" />
+            </e>
+            <e p="Config" t="Include">
+              <e p="AnimationImporterSharedConfig.cs" t="Include" />
+              <e p="AnimationImporterSharedConfigEditor.cs" t="Include" />
+              <e p="AnimationTargetObjectType.cs" t="Include" />
+              <e p="AssetTargetLocation.cs" t="Include" />
+              <e p="AssetTargetLocationType.cs" t="Include" />
+              <e p="ImportAnimatorController.cs" t="Include" />
+              <e p="PreviousImportSettings.cs" t="Include" />
+              <e p="SpriteNaming.cs" t="Include" />
+            </e>
+            <e p="IAnimationImporterPlugin.cs" t="Include" />
+            <e p="ImportedData" t="Include">
+              <e p="ImportedAnimation.cs" t="Include" />
+              <e p="ImportedAnimationFrame.cs" t="Include" />
+              <e p="ImportedAnimationSheet.cs" t="Include" />
+            </e>
+            <e p="Utilities" t="Include">
+              <e p="AnimationClipUtility.cs" t="Include" />
+              <e p="AssetDatabaseUtility.cs" t="Include" />
+              <e p="JSONObject.cs" t="Include" />
+              <e p="ScriptableObjectUtility.cs" t="Include" />
+            </e>
+          </e>
+          <e p="readme.txt" t="Include" />
         </e>
         <e p="TutorialInfo" t="Include">
           <e p="Scripts" t="Include">

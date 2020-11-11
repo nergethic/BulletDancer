@@ -227,6 +227,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4588475395269006661, guid: d8cc2cfe410fe524aadc832e89bce079, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 2024467645}
+    - target: {fileID: 4588475395269006661, guid: d8cc2cfe410fe524aadc832e89bce079, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 2024467644}
+    - target: {fileID: 4588475395269006661, guid: d8cc2cfe410fe524aadc832e89bce079, type: 3}
+      propertyPath: playerSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588475395269006661, guid: d8cc2cfe410fe524aadc832e89bce079, type: 3}
+      propertyPath: cameraPosition
+      value: 
+      objectReference: {fileID: 2024467645}
     - target: {fileID: 5780198171366553035, guid: d8cc2cfe410fe524aadc832e89bce079, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -476,6 +492,7 @@ GameObject:
   - component: {fileID: 1635444730}
   - component: {fileID: 1635444729}
   - component: {fileID: 1635444728}
+  - component: {fileID: 1635444732}
   m_Layer: 0
   m_Name: Cube 2
   m_TagString: Untagged
@@ -559,6 +576,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1635444732
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635444727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2024467642
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,12 +681,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024467642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 100
+  m_AssetsPPU: 72
   m_RefResolutionX: 320
   m_RefResolutionY: 180
   m_UpscaleRT: 0
