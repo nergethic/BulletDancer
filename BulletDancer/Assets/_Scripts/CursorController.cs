@@ -26,6 +26,6 @@ public class CursorController : MonoBehaviour {
         newPos.x = mousePos.x;
         newPos.z = mousePos.y;
         //cursor.position = newPos;
-        Debug.Log(mousePos.x);
+        //Debug.Log(mousePos.x);
     }
 }
